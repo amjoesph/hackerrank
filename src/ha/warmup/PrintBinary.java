@@ -5,12 +5,11 @@ public class PrintBinary {
 	public static void main(String ar[]) {
 		
 		String s = "";
-		int num = 3;
-		for (int i = 0; i<num; i++) {
-			s+="0";
-		}
+		int num = 2;
+		
 //		binaryPrint(s,"");
-		binaryPrint(num,"");
+//		binaryPrint(num,"");
+//		binaryPrint(num, 0,"");
 		decimalPrint(num,"");
 	}
 	
@@ -25,7 +24,7 @@ public class PrintBinary {
 	
 	private static void binaryPrint(int digits, String prefix) {
 		
-		System.out.println("binaryPrint("+digits+",\""+ prefix + "\")");
+//		System.out.println("binaryPrint("+digits+",\""+ prefix + "\")");
 		if (digits == 0) {
 			System.out.println(prefix);
 		} else {
@@ -34,7 +33,20 @@ public class PrintBinary {
 		}
 	}
 	
+	private static void binaryPrint(int num, int digits, String prefix) {
+		
+//		System.out.println("binaryPrint("+digits+",\""+ prefix + "\")");
+		if (digits == num) {
+			System.out.println(prefix);
+		} else {
+			binaryPrint(num, digits +1 , prefix + "0");
+			binaryPrint(num, digits +1 , prefix + "1");
+		}
+	}
+	
 	private static void decimalPrint(int digits, String prefix) {
+		
+		System.out.println("decimalPrint("+digits+",\""+ prefix + "\")");
 		
 		if (digits == 0) {
 			System.out.println(prefix);
